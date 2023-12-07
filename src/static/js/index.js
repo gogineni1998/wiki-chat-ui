@@ -14,6 +14,12 @@ const my_input = async () => {
     input: value,
   };
 
+  const a = document.getElementsByClassName("chat-container")[0];
+  const rel_div = document.createElement("div");
+  rel_div.className = "ai-text";
+  const node_rel = document.createTextNode("Loading...");
+  rel_div.appendChild(node_rel);
+  a.appendChild(rel_div);
   const response = await fetch(url, {
     method: "POST",
     headers: {
@@ -22,8 +28,8 @@ const my_input = async () => {
     body: JSON.stringify(data),
   });
   const json = await response.json();
-
-  const a = document.getElementsByClassName("chat-container")[0];
+  const element = document.getElementsByClassName("ai-text");
+  element[element.length-1].remove()
   const div = document.createElement("div");
   div.className = "ai-text";
   const node = document.createTextNode(json.data);
