@@ -3,16 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='css/index.css') }}" />
+    <!-- <link rel="stylesheet" href="../static/css/index.css" /> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}" />
     <title>Chatbot Example</title>
   </head>
   <body>
     <div class="container-main">
+      <h1 class="header">Wikipedia Q/A System</h1>
       <div class="container">
-        <h1 class="header">Chat Bot</h1>
-        <div class="chat-container"></div>
+        <div class="chat-container">
+        </div>
       </div>
       <div class="input-container">
         <input type="text" class="input-box" />
@@ -20,5 +20,6 @@
       </div>
     </div>
     <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    <!-- <script src="../static/js/index.js"></script> -->
   </body>
 </html>
