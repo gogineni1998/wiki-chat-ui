@@ -2,7 +2,7 @@ body {
     height: 98vh;
     margin-left: 25%;
     margin-right: 25%;
-    background-color: blue;
+    background-color: rgb(230, 222, 215);
 }
 
 .container-main {
@@ -11,7 +11,7 @@ body {
     height: 100%;
     margin-top: 5px;
     margin-bottom: 5px;
-    background-color: grey;
+    background-color: rgb(231, 204, 204);
     padding-left: 5px;
     padding-right: 5px;
     border-radius: 10px;
@@ -20,6 +20,7 @@ body {
 .header {
     align-self: center;
     background-color: antiquewhite;
+    color: green;
     padding-left: 25%;
     padding-right: 25%;
     padding-top: 10px;
@@ -41,18 +42,35 @@ body {
 .user-text {
     align-self: flex-end;
     background-color: aqua;
-    padding: 10px;
+    padding: 5px;
     margin: 10px;
     border-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+
+p {
+    padding-right: 10px;
 }
 
 .ai-text {
     background-color: aquamarine;
     align-self: flex-start;
-    padding: 10px;
+    padding: 5px;
     margin: 10px;
     border-radius: 10px;
+    display: flex;
+    align-items: center;
 }
+
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+    margin-right: 10px;
+  }
 
 .input-container {
     align-self: center;
