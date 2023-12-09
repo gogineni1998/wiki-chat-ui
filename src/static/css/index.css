@@ -3,9 +3,11 @@ body {
     margin-left: 25%;
     margin-right: 25%;
     background-color: rgb(230, 222, 215);
+    display: flex;
 }
 
 .container-main {
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -26,6 +28,12 @@ body {
     padding-top: 10px;
     padding-top: 10px;
     border-radius: 10px;
+    display: flex;
+}
+
+.topics {
+    align-self: center;
+    margin-left: 5px;
 }
 
 .container {
@@ -42,7 +50,7 @@ body {
 .user-text {
     align-self: flex-end;
     background-color: aqua;
-    padding: 5px;
+    padding: 1px;
     margin: 10px;
     border-radius: 10px;
     display: flex;
@@ -51,12 +59,13 @@ body {
 
 p {
     padding-right: 10px;
+    padding-left: 10px;
 }
 
 .ai-text {
     background-color: aquamarine;
     align-self: flex-start;
-    padding: 5px;
+    padding: 1px;
     margin: 10px;
     border-radius: 10px;
     display: flex;
@@ -65,12 +74,11 @@ p {
 
 .material-symbols-outlined {
     font-variation-settings:
-    'FILL' 0,
-    'wght' 400,
-    'GRAD' 0,
-    'opsz' 24;
-    margin-right: 10px;
-  }
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24;
+}
 
 .input-container {
     align-self: center;
@@ -84,15 +92,78 @@ p {
     margin-right: 10px;
     border-radius: 5px;
     height: 30px;
+    align-self: flex-end;
 }
 
-@media screen and (max-width: 1000px) {
-    body{
+.topic_names {
+    padding: 100px;
+    background-color: rgb(216, 233, 199);
+}
+
+.chart {
+    display: block;
+    margin: 0 auto;
+}
+
+#myChart {
+    width: 500px !important;
+    height: 500px !important;
+    margin-top: 25%;
+}
+
+@media screen and (max-width: 2000px) {
+    body {
         margin: 0% !important;
         background-color: white !important;
     }
+
     .container-main {
         margin-top: 0% !important;
         margin-bottom: 0% !important;
+    }
+
+    .header {
+        padding-left: 10%;
+        padding-right: 10%;
+        padding-bottom: 5px;
+    }
+
+    .topic_names {
+        padding: 5px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .topic_names {
+        padding: 1px;
+    }
+
+    #myChart {
+        width: 300px !important;
+        height: 300px !important;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .topic_names {
+        padding: 1px;
+    }
+
+    .header {
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-bottom: 5px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .topic_names {
+        padding: 1px;
+    }
+
+    .header {
+        padding-left: 2%;
+        padding-right: 2%;
+        padding-bottom: 5px;
     }
 }
