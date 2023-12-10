@@ -4,6 +4,7 @@ document.getElementsByClassName("topic_names")[0].style.display = 'none'
 document.getElementsByClassName("chart")[0].style.display = 'none'
 const ctx = document.getElementById('myChart');
 topics_selected = []
+const url = "http://34.125.36.177:5000"; 
 
 const my_input = async () => {
   value = document.getElementsByClassName("input-box")[0].value;
@@ -46,11 +47,9 @@ const my_input = async () => {
   // adding user input to loaded container
   chat_container.appendChild(user_input);
 
-
-  const url = "http://34.125.36.177:5000";
   const data = {
-    input: value,
-    topics: topics_selected
+    "input": value,
+    "topics": topics_selected
   };
 
   // creating loading div
@@ -115,10 +114,9 @@ const topic_checker = () => {
   });
 }
 
-const analytics_checker = () => {
-  topic_data[0] = topic_data[0] + 1
+const analytics_checker = async () => {
   let checkbox = document.getElementById("select_analytics");
-  checkbox.addEventListener("change", () => {
+  checkbox.addEventListener("change", async () => {
     if (checkbox.checked) {
       document.getElementById("select_topics").style.display = 'none'
       document.getElementById("topics_label").style.display = 'none'
@@ -126,6 +124,9 @@ const analytics_checker = () => {
       document.getElementsByClassName("input-container")[0].style.display = 'none'
       document.getElementsByClassName("chart")[0].style.display = 'block'
       document.getElementById("myChart").style.display = 'block'
+      const response = await fetch(url+"/analytics")
+      const json = await response.json();
+      topic_data = json.analytics
       if(chart_generator != "") {
         chart_generator.destroy()
       }
@@ -146,7 +147,7 @@ const analytics_checker = () => {
             'chit chat'
           ],
           datasets: [{
-            label: 'My First Dataset',
+            label: 'Hits',
             data: topic_data,
             backgroundColor: [
               'rgb(255, 99, 132)',
