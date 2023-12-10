@@ -6,6 +6,16 @@ const ctx = document.getElementById('myChart');
 topics_selected = []
 const url = "http://34.125.36.177:5000"; 
 
+let input = document.getElementsByClassName("input-box");
+input[0].addEventListener("keypress", (event) => {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    my_input()
+  }
+});
+
+
+
 const my_input = async () => {
   value = document.getElementsByClassName("input-box")[0].value;
   if(value.length === 0) {
