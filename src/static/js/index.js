@@ -1,5 +1,5 @@
 let chart_generator = ""
-topic_data = [300, 50, 100, 10, 30, 23, 45, 67, 89, 90]
+topic_data = []
 document.getElementsByClassName("topic_names")[0].style.display = 'none'
 document.getElementsByClassName("chart")[0].style.display = 'none'
 const ctx = document.getElementById('myChart');
@@ -7,6 +7,9 @@ topics_selected = []
 
 const my_input = async () => {
   value = document.getElementsByClassName("input-box")[0].value;
+  if(value.length === 0) {
+    return 0;
+  }
   document.getElementsByClassName("input-box")[0].value = "";
 
   // Robot icon creation
@@ -44,7 +47,7 @@ const my_input = async () => {
   chat_container.appendChild(user_input);
 
 
-  const url = "http://34.162.110.229:5000";
+  const url = "http://34.125.36.177:5000";
   const data = {
     input: value,
     topics: topics_selected
@@ -75,18 +78,18 @@ const my_input = async () => {
   });
 
   const json = await response.json();
-
+  console.log(json)
   // removing loading div
   const element = document.getElementsByClassName("ai-text");
   element[element.length - 1].remove()
-
+  topic_data = json.analytics
   // creating ai generated div
   const div = document.createElement("div");
   div.className = "ai-text";
 
   // creating ai generated text paragraph
   const robot_div = document.createElement("p")
-  const node = document.createTextNode(json.data);
+  const node = document.createTextNode(json.topic+" : "+json.data);
   robot_div.appendChild(node)
 
   // adding robot icon
@@ -139,7 +142,8 @@ const analytics_checker = () => {
             'Politics',
             'Education',
             'Travel',
-            'Food'
+            'Food',
+            'chit chat'
           ],
           datasets: [{
             label: 'My First Dataset',
@@ -154,7 +158,8 @@ const analytics_checker = () => {
               'rgb(255, 68, 51)',
               'rgb(222, 49, 99)',
               'rgb(220, 20, 60)',
-              'rgb(169, 92, 104)'
+              'rgb(169, 92, 104)',
+              'rgb(255, 255, 0)'
             ],
             hoverOffset: 4
           }]
