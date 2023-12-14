@@ -4,7 +4,7 @@ document.getElementsByClassName("topic_names")[0].style.display = 'none'
 document.getElementsByClassName("chart")[0].style.display = 'none'
 const ctx = document.getElementById('myChart');
 topics_selected = []
-const url = "http://34.125.36.177:5000"; 
+const url = "http://34.85.254.172:5000"; 
 
 let input = document.getElementsByClassName("input-box");
 input[0].addEventListener("keypress", (event) => {
